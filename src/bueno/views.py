@@ -8,7 +8,8 @@ from .forms import ContactForm, LoginForm, RegisterForm
 
 def home_page(request):
 	context={
-	 "title":"Καλώς ήρθατε στο Bueno Crepa"
+	 "title":"Καλώς ήρθατε στο Bueno Crepa",
+	 "sign_up":"/register"
 	}
 	return render(request, "home_page.html", context)
 

@@ -144,7 +144,25 @@
 			"file": "src/bueno/views.py",
 			"settings":
 			{
-				"buffer_size": 2520,
+				"buffer_size": 2545,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/templates/home_page.html",
+			"settings":
+			{
+				"buffer_size": 1869,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/templates/base.html",
+			"settings":
+			{
+				"buffer_size": 878,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -154,15 +172,6 @@
 			"settings":
 			{
 				"buffer_size": 2301,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/templates/base.html",
-			"settings":
-			{
-				"buffer_size": 831,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -212,16 +221,17 @@
 		"/C/Users/konka/Desktop/pythonprojects/bueno",
 		"/C/Users/konka/Desktop/pythonprojects/bueno/src",
 		"/C/Users/konka/Desktop/pythonprojects/bueno/src/bueno",
+		"/C/Users/konka/Desktop/pythonprojects/bueno/src/products",
+		"/C/Users/konka/Desktop/pythonprojects/bueno/src/static_bueno",
+		"/C/Users/konka/Desktop/pythonprojects/bueno/src/static_bueno/media_root",
 		"/C/Users/konka/Desktop/pythonprojects/bueno/src/templates",
-		"/C/Users/konka/Desktop/pythonprojects/bueno/src/templates/auth",
-		"/C/Users/konka/Desktop/pythonprojects/bueno/static_cdn",
-		"/C/Users/konka/Desktop/pythonprojects/bueno/static_cdn/static_root",
-		"/C/Users/konka/Desktop/pythonprojects/bueno/static_cdn/static_root/media_root",
-		"/C/Users/konka/Desktop/pythonprojects/bueno/static_cdn/static_root/media_root/css",
-		"/C/Users/konka/Desktop/pythonprojects/bueno/static_cdn/static_root/media_root/js"
+		"/C/Users/konka/Desktop/pythonprojects/bueno/src/templates/auth"
 	],
 	"file_history":
 	[
+		"/C/Users/konka/Desktop/pythonprojects/bueno/src/templates/base.html",
+		"/C/Users/konka/Desktop/pythonprojects/bueno/src/products/models.py",
+		"/C/Users/konka/Desktop/pythonprojects/bueno/src/products/apps.py",
 		"/C/Users/konka/Desktop/pythonprojects/bueno/src/templates/auth/login_page.html",
 		"/C/Users/konka/Desktop/pythonprojects/bueno/src/templates/home_page.html",
 		"/C/Users/konka/Desktop/pythonprojects/bueno/src/templates/contact_page.html",
@@ -307,7 +317,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -323,8 +333,8 @@
 						"selection":
 						[
 							[
-								1451,
-								1451
+								970,
+								970
 							]
 						],
 						"settings":
@@ -337,7 +347,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -346,15 +356,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2520,
+						"buffer_size": 2545,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2354,
-								2354
+								393,
+								393
 							]
 						],
 						"settings":
@@ -363,14 +373,74 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 911.2,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/templates/home_page.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1669,
+								1669
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
+					"file": "src/templates/base.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 878,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								836,
+								836
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "src/bueno/forms.py",
 					"semi_transient": false,
 					"settings":
@@ -392,44 +462,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1100.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/templates/base.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 831,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								486,
-								486
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 878.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "src/bueno/urls.py",
 					"semi_transient": false,
 					"settings":
@@ -441,8 +481,8 @@
 						"selection":
 						[
 							[
-								1032,
-								1032
+								1284,
+								1284
 							]
 						],
 						"settings":
@@ -453,7 +493,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -536,7 +576,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 110.0,
+	"side_bar_width": 216.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
