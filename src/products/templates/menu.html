@@ -31,7 +31,7 @@
 	      <div class="card-body">
 	        <h5 class="card-title">{{ saltyCrepe.title }}</h5>
 	        <p class="card-text">{{ saltyCrepe.descritpion}}</p>
-	        <a href="#" class="btn btn-primary">Προσθήκη στο καλάθι</a>
+	        <a href="#" class="btn btn-primary modalbtn">Προσθήκη στο καλάθι</a>
 	      </div>
 	    </div>
 	    {% endfor %}
@@ -42,11 +42,56 @@
 	      <div class="card-body">
 	        <h5 class="card-title">{{ sweetCrepe.title }}</h5>
 	        <p class="card-text">{{ sweetCrepe.descritpion}}</p>
-	        <a href="#" class="btn btn-primary">Προσθήκη στο καλάθι</a>
+	        <a href="#" class="btn btn-primary modalbtn">Προσθήκη στο καλάθι</a>
 	      </div>
 	    </div>
 	    {% endfor %}
 	  </div>
 	</div>
 </div>
+
+<!--Modal for every item  -->
+	    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel"></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<p class="modal-description"></p>
+		        <form>
+		          <div class="form-group">
+		            <label for="message-text" class="col-form-label">Σχόλια:</label>
+		            <textarea class="form-control" id="message-text"></textarea>
+		          </div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Κλείσιμο</button>
+		        <button type="button" class="btn btn-primary">Προσθήκη στο καλάθι</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+<!--End of modal  -->
+{% endblock %}
+
+{% block extra_js %}
+	<script>
+		$( document ).ready(function() {
+			$('.modalbtn').click(function(e){
+				$(this).addClass('clicked');
+				var title = $('.clicked').closest('.card-body').children('.card-title').text();
+				var desc = $('.clicked').closest('.card-body').children('.card-text').text();
+				$('#exampleModal').find('.modal-title').text(title);
+				$('#exampleModal').find('.modal-description').text(desc);
+				$('#exampleModal').modal('show');
+				$('.clicked').removeClass('clicked');
+			});
+		});
+	</script>
 {% endblock %}
