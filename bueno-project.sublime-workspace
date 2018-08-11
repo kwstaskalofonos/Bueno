@@ -172,13 +172,11 @@
 			}
 		},
 		{
-			"contents": "{% extends 'base.html' %}\n{% block content %}\n\t<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n      <a class=\"navbar-brand\" href=\"#\">Navbar</a>\n      <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n        <ul class=\"navbar-nav\">\n          <li class=\"nav-item active\">\n            <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">Features</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link\" href=\"#\">Pricing</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"nav-link sign_up\" href=\"\">Εγγραφή</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n{% endblock %}",
 			"file": "src/products/templates/materialList.html",
-			"file_size": 0,
-			"file_write_time": 131779747470779232,
 			"settings":
 			{
-				"buffer_size": 1001,
+				"buffer_size": 1039,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -186,7 +184,7 @@
 			"file": "src/products/templates/menu.html",
 			"settings":
 			{
-				"buffer_size": 3590,
+				"buffer_size": 3959,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -355,7 +353,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -422,15 +420,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1001,
+						"buffer_size": 1039,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								986,
-								986
+								1039,
+								1039
 							]
 						],
 						"settings":
@@ -441,7 +439,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -450,15 +448,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3590,
+						"buffer_size": 3959,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3552,
-								3552
+								3959,
+								3945
 							]
 						],
 						"settings":
@@ -466,10 +464,10 @@
 							"syntax": "Packages/HTML/HTML.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1084.0,
+						"translation.y": 1458.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{

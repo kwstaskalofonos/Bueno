@@ -23,26 +23,28 @@
       </div>
     </nav>
 
-<div class="container-fluid content">
+<div class="container content">
 	<div class="row">
 	  <div class="col-sm-6">
 	  	{% for saltyCrepe in saltyCrepes %}
-	    <div class="card">
+	    <div class="card text-white bg-info mb-3">
 	      <div class="card-body">
 	        <h5 class="card-title">{{ saltyCrepe.title }}</h5>
 	        <p class="card-text">{{ saltyCrepe.descritpion}}</p>
-	        <a href="#" class="btn btn-primary modalbtn">Προσθήκη στο καλάθι</a>
+	        <i class="fa fa-eur" aria-hidden="true">{{ saltyCrepe.price }}</i>
+	        <a href="#" class="btn btn-light modalbtn">Προσθήκη στο καλάθι</a>
 	      </div>
 	    </div>
 	    {% endfor %}
 	  </div>
 	  <div class="col-sm-6">
 	  	{% for sweetCrepe in sweetCrepes %}
-	    <div class="card">
+	    <div class="card text-white bg-info mb-3">
 	      <div class="card-body">
 	        <h5 class="card-title">{{ sweetCrepe.title }}</h5>
 	        <p class="card-text">{{ sweetCrepe.descritpion}}</p>
-	        <a href="#" class="btn btn-primary modalbtn">Προσθήκη στο καλάθι</a>
+	        <i class="fa fa-eur" aria-hidden="true">{{ sweetCrepe.price }}</i>
+	        <a href="#" class="btn btn-light modalbtn">Προσθήκη στο καλάθι</a>
 	      </div>
 	    </div>
 	    {% endfor %}
@@ -62,6 +64,7 @@
 		      </div>
 		      <div class="modal-body">
 		      	<p class="modal-description"></p>
+		      	<i class="fa fa-eur price" aria-hidden="true"></i>
 		        <form>
 		          <div class="form-group">
 		            <label for="message-text" class="col-form-label">Σχόλια:</label>
@@ -93,8 +96,10 @@
 				$(this).addClass('clicked');
 				var title = $('.clicked').closest('.card-body').children('.card-title').text();
 				var desc = $('.clicked').closest('.card-body').children('.card-text').text();
+				var price = $('.clicked').closest('.card-body').children('.fa-eur').text();
 				$('#exampleModal').find('.modal-title').text(title);
 				$('#exampleModal').find('.modal-description').text(desc);
+				$('#exampleModal').find('.price').text(price);
 				$('#exampleModal').modal('show');
 				$('.clicked').removeClass('clicked');
 			});
