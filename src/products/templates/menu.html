@@ -67,6 +67,12 @@
 		            <label for="message-text" class="col-form-label">Σχόλια:</label>
 		            <textarea class="form-control" id="message-text"></textarea>
 		          </div>
+		          <div class="form-group">
+		          	  <label for="example-number-input" class="col-2 col-form-label">Ποσότητα</label>
+					  <div class="col-10">
+					    <input class="form-control" type="number" value="1" id="quantity">
+					  </div>
+		          </div>
 		        </form>
 		      </div>
 		      <div class="modal-footer">
@@ -92,6 +98,11 @@
 				$('#exampleModal').modal('show');
 				$('.clicked').removeClass('clicked');
 			});
+
+			$('#exampleModal').on('hidden.bs.modal',function(e){
+				$('#message-text').val('');
+				$('#quantity').val('1');
+			})
 		});
 	</script>
 {% endblock %}
