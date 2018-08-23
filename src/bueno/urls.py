@@ -20,7 +20,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
 
-from products.views import SaltyMaterial, SweetMaterial, CrepeListView
+from products.views import CrepeListView
 from .views import home_page, contact_page, login_page, register_page
 
 urlpatterns = [
@@ -29,8 +29,6 @@ urlpatterns = [
 	url(r'^login/', login_page),
 	url(r'^register/', register_page),
 	#url(r'^materials/', MaterialListView.as_view()),
-	url(r'^saltymaterials/', SaltyMaterial),
-	url(r'^sweetmaterials/', SweetMaterial),
 	url(r'^crepes/', CrepeListView),
     url(r'^admin/', admin.site.urls),
 ]

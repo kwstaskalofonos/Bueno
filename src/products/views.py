@@ -12,28 +12,19 @@ from .models import Material, Crepe
 	#	print(context)
 	#	return context
 
-def SaltyMaterial(request):
-	materials = Material.objects.filter(category='Αλμυρές')
-	#materials = Material.objects.all()
-	context = {
-		'materials':materials
-	}
-	return render(request,"materialList.html")
-
-def SweetMaterial(request):
-	materials = Material.objects.filter(category='Γλυκές')
-	#materials = Material.objects.all()
-	context = {
-		'materials':materials
-	}
-	return render(request,"materialList.html")
-
 def CrepeListView(request):
 	#crepes = Crepe.objects.all()
-	saltyCrepes = Crepe.objects.filter(category='Αλμυρές')
-	sweetCrepes = Crepe.objects.filter(category='Γλυκές')
+	saltycrepes = Crepe.objects.filter(category='Αλμυρές')
+	sweetcrepes = Crepe.objects.filter(category='Γλυκές')
+	saltmaterials = Material.objects.filter(category='Αλμυρές')
+	sweetmaterials = Material.objects.filter(category='Γλυκές')
 	context = {
-		'saltyCrepes':saltyCrepes,
-		'sweetCrepes':sweetCrepes
+		'saltyCrepes':saltycrepes[:round(len(saltycrepes)/2)],
+		'saltyCrepe2s':saltycrepes[round(len(saltycrepes)/2):],
+		'sweetCrepes':sweetcrepes[:round(len(sweetcrepes)/2)],
+		'sweetCrepe2s':sweetcrepes[round(len(sweetcrepes)/2):],
+		'saltmaterials':saltmaterials,
+		'sweetmaterials':sweetmaterials
 	}
 	return render(request,"menu.html",context)
+

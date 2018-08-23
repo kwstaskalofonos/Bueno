@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#0dffca">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,32 +23,105 @@
       </div>
     </nav>
 
-<div class="container content">
+<div class="container-fluid content">
+	<!--Sidebar for mobiles -->
+	<ul class="nav justify-content-center d-md-none">
+		<li class="nav-item">
+			<a class="nav-link" href"#salty">Αλμυρές κρέπες</a>
+		</li>
+		<li class="nav-item" id="sweet3">
+			<a class="nav-link" href="#sweet-section">Γλυκές κρέπες</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href"#">Σνάκ</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href"#">Ροφήματα</a>
+		</li>
+	</ul>
+	<!--END of sidebar for mobiles -->
 	<div class="row">
-	  <div class="col-sm-6">
-	  	{% for saltyCrepe in saltyCrepes %}
-	    <div class="card text-white bg-info mb-3">
-	      <div class="card-body">
-	        <h5 class="card-title">{{ saltyCrepe.title }}</h5>
-	        <p class="card-text">{{ saltyCrepe.descritpion}}</p>
-	        <i class="fa fa-eur" aria-hidden="true">{{ saltyCrepe.price }}</i>
-	        <a href="#" class="btn btn-light modalbtn">Προσθήκη στο καλάθι</a>
-	      </div>
-	    </div>
-	    {% endfor %}
-	  </div>
-	  <div class="col-sm-6">
-	  	{% for sweetCrepe in sweetCrepes %}
-	    <div class="card text-white bg-info mb-3">
-	      <div class="card-body">
-	        <h5 class="card-title">{{ sweetCrepe.title }}</h5>
-	        <p class="card-text">{{ sweetCrepe.descritpion}}</p>
-	        <i class="fa fa-eur" aria-hidden="true">{{ sweetCrepe.price }}</i>
-	        <a href="#" class="btn btn-light modalbtn">Προσθήκη στο καλάθι</a>
-	      </div>
-	    </div>
-	    {% endfor %}
-	  </div>
+		<!--Sidebar for desktops and tablets -->
+		<div class="col-md-2 d-none d-md-block">
+			<div class="sidenav">
+				<nav class="nav flex-column">
+				  <a class="nav-link active" href="#">Αλμυρές κρέπες</a>
+				  <a class="nav-link disabled" id="sweet2" href="#sweet-section">Γλυκές κρέπες</a>
+				  <a class="nav-link disabled" href="#">Σνάκ</a>
+				  <a class="nav-link disabled" href="#">Ροφήματα</a>
+				</nav>
+			</div>
+		</div>
+		<!-- END of Sidebar for desktops and tablets -->
+		<div class="col-md-10">
+			<!--Salty Crepes -->
+			<div class="row" id="salty">
+			  <div class="col-sm-6">
+			  	<ul class="list-unstyled"> 
+			  	{% for saltyCrepe in saltyCrepes %}
+			    	<li class="media">
+			    		<div class="media-body">
+			    			<div class="d-flex justify-content-between align-items-center">
+			    				<strong>{{ saltyCrepe.title }}</strong>
+			    				<a href="#" class="modalbtn">Προσθήκη στο καλάθι</a>
+			    			</div>
+			    			<span class="d-block desc">{{ saltyCrepe.descritpion}}</span>
+			    			<span class="d-block fa fa-eur price" aria-hidden="true">{{ saltyCrepe.price}}</span>
+			    		</div>
+			    	</li>
+			    	<hr>
+			    {% endfor %}
+			     </ul>
+			  </div>
+			  <div class="col-sm-6">
+			  	<ul class="list-unstyled">
+			  	{% for saltyCrepe2 in saltyCrepe2s %}
+				  	<li class="media">
+				    	<div class="media-body">
+				    		<div class="d-flex justify-content-between align-items-center">
+				    			<strong>{{ saltyCrepe2.title }}</strong>
+				    			<a href="#" class="modalbtn">Προσθήκη στο καλάθι</a>
+				    		</div>
+				    		<span class="d-block desc">{{ saltyCrepe2.descritpion}}</span>
+				    		<span class="d-block fa fa-eur price" aria-hidden="true">{{ saltyCrepe2.price}}</span>
+				    	</div>
+				    </li>
+				    <hr>
+			    {% endfor %}
+				</ul>
+			  </div>
+			</div>
+			<!--END of Salty Crepes -->
+			<hr>
+			<!--Sweet Crepes -->
+			<div class="row" id="sweet-section">
+			  <div class="col-sm-6">
+			  	{% for sweetCrepe in sweetCrepes %}
+			    <div class="card text-white bg-info mb-3">
+			      <div class="card-body">
+			        <h5 class="card-title">{{ sweetCrepe.title }}</h5>
+			        <p class="card-text">{{ sweetCrepe.descritpion}}</p>
+			        <i class="fa fa-eur" aria-hidden="true">{{ sweetCrepe.price }}</i>
+			        <a href="#" class="btn btn-light modalbtn">Προσθήκη στο καλάθι</a>
+			      </div>
+			    </div>
+			    {% endfor %}
+			  </div>
+			  <div class="col-sm-6">
+			  	{% for sweetCrepe2 in sweetCrepe2s %}
+			    <div class="card text-white bg-info mb-3">
+			      <div class="card-body">
+			        <h5 class="card-title">{{ sweetCrepe2.title }}</h5>
+			        <p class="card-text">{{sweetCrepe2.descritpion}}</p>
+			        <i class="fa fa-eur" aria-hidden="true">{{ sweetCrepe2.price }}</i>
+			        <a href="#" class="btn btn-light modalbtn">Προσθήκη στο καλάθι</a>
+			      </div>
+			    </div>
+			    {% endfor %}
+			  </div>
+			</div>
+			<!--END of Sweet Crepes -->
+		</div>
 	</div>
 </div>
 
@@ -92,7 +165,7 @@
 {% block extra_js %}
 	<script>
 		$( document ).ready(function() {
-			$('.modalbtn').click(function(e){
+			/*$('.modalbtn').click(function(e){
 				$(this).addClass('clicked');
 				var title = $('.clicked').closest('.card-body').children('.card-title').text();
 				var desc = $('.clicked').closest('.card-body').children('.card-text').text();
@@ -102,12 +175,40 @@
 				$('#exampleModal').find('.price').text(price);
 				$('#exampleModal').modal('show');
 				$('.clicked').removeClass('clicked');
+			}); */
+			$('.modalbtn').click(function(e){
+				$(this).addClass('clicked');
+				var title = $('.clicked').closest('.d-flex').children('strong').text();
+				var desc = $('.clicked').closest('.d-flex').closest('.media-body').children('.desc').text();
+				var price = $('.clicked').closest('.d-flex').closest('.media-body').children('.price').text();
+				$('#exampleModal').find('.modal-title').text(title);
+				$('#exampleModal').find('.modal-description').text(desc);
+				$('#exampleModal').find('.price').text(price);
+				$('#exampleModal').modal('show');
+				$('.clicked').removeClass('clicked');
 			});
-
 			$('#exampleModal').on('hidden.bs.modal',function(e){
 				$('#message-text').val('');
 				$('#quantity').val('1');
 			})
+
+			$('sweet3 a').on('click', function(event) {
+		      
+				
+		        if (this.hash !=="") {
+			        event.preventDefault();
+
+			        const hash = this.hash;
+
+			        $('html, body').animate({
+			          scrollTop: $(hash).offset().top
+			        }, 800, function() {
+			          window.location.hash = hash;
+			        });
+			      }
+		      
+   			 });
+
 		});
 	</script>
 {% endblock %}
