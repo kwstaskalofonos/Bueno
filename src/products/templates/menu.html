@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#0dffca">
+<nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -96,28 +96,38 @@
 			<!--Sweet Crepes -->
 			<div class="row" id="sweet-section">
 			  <div class="col-sm-6">
+			  	<ul class="list-unstyled">
 			  	{% for sweetCrepe in sweetCrepes %}
-			    <div class="card text-white bg-info mb-3">
-			      <div class="card-body">
-			        <h5 class="card-title">{{ sweetCrepe.title }}</h5>
-			        <p class="card-text">{{ sweetCrepe.descritpion}}</p>
-			        <i class="fa fa-eur" aria-hidden="true">{{ sweetCrepe.price }}</i>
-			        <a href="#" class="btn btn-light modalbtn">Προσθήκη στο καλάθι</a>
-			      </div>
-			    </div>
+				    <li class="media-body">
+				      <div class="media-body">
+				      	<div class="d-flex justify-content-between align-items-center">
+					    	<strong>{{ sweetCrepe.title }}</strong>
+					    	<a href="#" class="modalbtn">Προσθήκη στο καλάθι</a>
+					    </div>
+					    <span class="d-block desc">{{ sweetCrepe.descritpion}}</span>
+					    <span class="d-block fa fa-eur price" aria-hidden="true">{{ sweetCrepe.price}}</span>
+				      </div>
+				    </li>
+				    <hr>
 			    {% endfor %}
+				</ul>
 			  </div>
 			  <div class="col-sm-6">
+			  	<ul class="list-unstyled">
 			  	{% for sweetCrepe2 in sweetCrepe2s %}
-			    <div class="card text-white bg-info mb-3">
-			      <div class="card-body">
-			        <h5 class="card-title">{{ sweetCrepe2.title }}</h5>
-			        <p class="card-text">{{sweetCrepe2.descritpion}}</p>
-			        <i class="fa fa-eur" aria-hidden="true">{{ sweetCrepe2.price }}</i>
-			        <a href="#" class="btn btn-light modalbtn">Προσθήκη στο καλάθι</a>
-			      </div>
-			    </div>
+				    <li class="media-body">
+				      <div class="media-body">
+				      	<div class="d-flex justify-content-between align-items-center">
+					    	<strong>{{ sweetCrepe2.title }}</strong>
+					    	<a href="#" class="modalbtn">Προσθήκη στο καλάθι</a>
+					    </div>
+					    <span class="d-block desc">{{ sweetCrepe2.descritpion}}</span>
+					    <span class="d-block fa fa-eur price" aria-hidden="true">{{ sweetCrepe2.price}}</span>
+				      </div>
+				    </li>
+				    <hr>
 			    {% endfor %}
+				</ul>
 			  </div>
 			</div>
 			<!--END of Sweet Crepes -->
@@ -165,17 +175,6 @@
 {% block extra_js %}
 	<script>
 		$( document ).ready(function() {
-			/*$('.modalbtn').click(function(e){
-				$(this).addClass('clicked');
-				var title = $('.clicked').closest('.card-body').children('.card-title').text();
-				var desc = $('.clicked').closest('.card-body').children('.card-text').text();
-				var price = $('.clicked').closest('.card-body').children('.fa-eur').text();
-				$('#exampleModal').find('.modal-title').text(title);
-				$('#exampleModal').find('.modal-description').text(desc);
-				$('#exampleModal').find('.price').text(price);
-				$('#exampleModal').modal('show');
-				$('.clicked').removeClass('clicked');
-			}); */
 			$('.modalbtn').click(function(e){
 				$(this).addClass('clicked');
 				var title = $('.clicked').closest('.d-flex').children('strong').text();
