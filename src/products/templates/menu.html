@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +28,7 @@
 	<!--Sidebar for mobiles -->
 	<ul class="nav justify-content-center d-md-none">
 		<li class="nav-item">
-			<a class="nav-link" href"#salty">Αλμυρές κρέπες</a>
+			<a class="nav-link" href="#salty-section">Αλμυρές κρέπες</a>
 		</li>
 		<li class="nav-item" id="sweet3">
 			<a class="nav-link" href="#sweet-section">Γλυκές κρέπες</a>
@@ -42,10 +43,10 @@
 	<!--END of sidebar for mobiles -->
 	<div class="row">
 		<!--Sidebar for desktops and tablets -->
-		<div class="col-md-2 d-none d-md-block">
+		<div class="col-md-2 col-lg-1 d-none d-md-block">
 			<div class="sidenav">
 				<nav class="nav flex-column">
-				  <a class="nav-link active" href="#">Αλμυρές κρέπες</a>
+				  <a class="nav-link active" href="#salty-section">Αλμυρές κρέπες</a>
 				  <a class="nav-link disabled" id="sweet2" href="#sweet-section">Γλυκές κρέπες</a>
 				  <a class="nav-link disabled" href="#">Σνάκ</a>
 				  <a class="nav-link disabled" href="#">Ροφήματα</a>
@@ -53,9 +54,10 @@
 			</div>
 		</div>
 		<!-- END of Sidebar for desktops and tablets -->
-		<div class="col-md-10">
+		<div class="col-md-10 col-lg-11">
 			<!--Salty Crepes -->
-			<div class="row" id="salty">
+			<h4>Αλμυρές κρέπες</h4>
+			<div class="row" id="salty-section">
 			  <div class="col-sm-6">
 			  	<ul class="list-unstyled"> 
 			  	{% for saltyCrepe in saltyCrepes %}
@@ -94,6 +96,7 @@
 			<!--END of Salty Crepes -->
 			<hr>
 			<!--Sweet Crepes -->
+			<h4>Γλυκές κρέπες</h4>
 			<div class="row" id="sweet-section">
 			  <div class="col-sm-6">
 			  	<ul class="list-unstyled">
@@ -148,66 +151,30 @@
 		      <div class="modal-body">
 		      	<p class="modal-description"></p>
 		      	<i class="fa fa-eur price" aria-hidden="true"></i>
-		        <form>
-		          <div class="form-group">
-		            <label for="message-text" class="col-form-label">Σχόλια:</label>
-		            <textarea class="form-control" id="message-text"></textarea>
-		          </div>
-		          <div class="form-group">
-		          	  <label for="example-number-input" class="col-2 col-form-label">Ποσότητα</label>
-					  <div class="col-10">
-					    <input class="form-control" type="number" value="1" id="quantity" max="10" min="1">
-					  </div>
-		          </div>
-		        </form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Κλείσιμο</button>
-		        <button type="button" class="btn btn-primary">Προσθήκη στο καλάθι</button>
-		      </div>
+		      	<div class="form-group fg1">
+			        <label for="message-text" class="col-form-label">Σχόλια:</label>
+			        <textarea class="form-control" id="message-text"></textarea>
+			    </div>
+			    <div class="form-group fg2">
+			       	<label for="example-number-input" class="col-2 col-form-label">Ποσότητα</label>
+					<div class="col-10">
+						<input class="form-control" type="number" value="1" id="quantity" max="10" min="1">
+					</div>
+			    </div>
+		    </div>
+		    <div class="modal-footer">
+		    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Κλείσιμο</button>
+		        <button type="button" class="btn btn-primary add_product" data-dismiss="modal">Προσθήκη στο καλάθι</button>
+		    </div>
 		    </div>
 		  </div>
 		</div>
 		
 <!--End of modal  -->
+
+
 {% endblock %}
 
 {% block extra_js %}
-	<script>
-		$( document ).ready(function() {
-			$('.modalbtn').click(function(e){
-				$(this).addClass('clicked');
-				var title = $('.clicked').closest('.d-flex').children('strong').text();
-				var desc = $('.clicked').closest('.d-flex').closest('.media-body').children('.desc').text();
-				var price = $('.clicked').closest('.d-flex').closest('.media-body').children('.price').text();
-				$('#exampleModal').find('.modal-title').text(title);
-				$('#exampleModal').find('.modal-description').text(desc);
-				$('#exampleModal').find('.price').text(price);
-				$('#exampleModal').modal('show');
-				$('.clicked').removeClass('clicked');
-			});
-			$('#exampleModal').on('hidden.bs.modal',function(e){
-				$('#message-text').val('');
-				$('#quantity').val('1');
-			})
-
-			$('sweet3 a').on('click', function(event) {
-		      
-				
-		        if (this.hash !=="") {
-			        event.preventDefault();
-
-			        const hash = this.hash;
-
-			        $('html, body').animate({
-			          scrollTop: $(hash).offset().top
-			        }, 800, function() {
-			          window.location.hash = hash;
-			        });
-			      }
-		      
-   			 });
-
-		});
-	</script>
+	<script src="{% static 'media_root/js/menu.js'%}"></script>
 {% endblock %}

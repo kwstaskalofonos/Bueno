@@ -7,3 +7,13 @@
 	z-index:1;
 	margin-left:-17px 
 }
+
+.cover-container{
+	max-width: 42rem;
+}
+div.inner h3.masthead-brand{
+	float:left;
+}
+.nav-masthead{
+	float:right;
+}
