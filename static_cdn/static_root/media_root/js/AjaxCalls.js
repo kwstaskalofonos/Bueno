@@ -1,0 +1,20 @@
+$( document ).ready(function() {
+	$('#AjaxForm').on('submit',function(event){
+		event.preventDefault();
+		$.ajax({
+			type:'POST',
+			url:'/ajax/AjaxCall/',
+			data:{
+				name:'worked',
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+			},
+			datatype:'json',
+			success:function(data){
+				alert('worked');
+			},
+			error:function(xhr,errmsg,err){
+				alert('faileld');
+			}
+		});
+	});
+});
