@@ -2,9 +2,11 @@ $( document ).ready(function() {
 	$('#AjaxForm').on('submit',function(event){
 		event.preventDefault();
 		$.ajax({
+			type:'POST',
 			url:'/ajax/AjaxCall/',
 			data:{
-				name:'worked'
+				name:'worked',
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
 			},
 			datatype:'json',
 			success:function(data){

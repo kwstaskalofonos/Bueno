@@ -34,11 +34,11 @@ def CrepeListView(request):
 	return render(request,"menu.html",context)
 
 def AjaxCall(request):
-	print(request.META.get('HTTP_X_REQUESTED_WITH'))
-	if request.is_ajax():
-		print('Ajax call')
-	else:
-		print('No Ajax')
+	if request.method == 'POST':
+		if request.is_ajax():
+			print('Ajax call')
+		else:
+			print('No Ajax')
 	return HttpResponse('')
 
 
