@@ -26,7 +26,7 @@
 
 <div class="container-fluid content">
 	<!--Sidebar for mobiles -->
-	<ul class="nav justify-content-center d-md-none">
+	<ul class="nav justify-content-center d-lg-none d-xl-none">
 		<li class="nav-item">
 			<a class="nav-link" href="#salty-section">Αλμυρές κρέπες</a>
 		</li>
@@ -43,7 +43,7 @@
 	<!--END of sidebar for mobiles -->
 	<div class="row">
 		<!--Sidebar for desktops and tablets -->
-		<div class="col-md-2 col-lg-1 d-none d-md-block">
+		<div class="col-md-2 col-lg-2 d-none d-lg-block">
 			<div class="sidenav">
 				<nav class="nav flex-column">
 				  <a class="nav-link active" href="#salty-section">Αλμυρές κρέπες</a>
@@ -54,9 +54,10 @@
 			</div>
 		</div>
 		<!-- END of Sidebar for desktops and tablets -->
-		<div class="col-md-10 col-lg-11">
+		<div class="col-md-9 col-lg-7">
 			<!--Salty Crepes -->
 			<h4>Αλμυρές κρέπες</h4>
+			<a href="#" class="customCrepes" value="salt">Επελεξε εσύ τα υλικά</a>
 			<div class="row" id="salty-section">
 			  <div class="col-sm-6">
 			  	<ul class="list-unstyled"> 
@@ -97,6 +98,7 @@
 			<hr>
 			<!--Sweet Crepes -->
 			<h4>Γλυκές κρέπες</h4>
+			<a href="#" class="customCrepes" value="sweet">Επελεξε εσύ τα υλικά</a>
 			<div class="row" id="sweet-section">
 			  <div class="col-sm-6">
 			  	<ul class="list-unstyled">
@@ -135,8 +137,28 @@
 			</div>
 			<!--END of Sweet Crepes -->
 		</div>
+		<!--Cart implementation -->
+		<div class="col-md-3 col-lg-3">
+			<div class="card" style="width:100%">
+				<div class="card-body">
+					<h5 class="card-title text-center">Η παραγγελία σου</h5>
+					<ul class="list-group" id="cartList">
+					</ul>
+					<div class="text-center">
+						<button type="button" class="btn btn-danger clear-cart" data-dismiss="modal">Καθαρισμός</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--End of Cart implementation -->
 	</div>
 </div>
+<!--Ajax test  -->
+	<form method='POST' id="AjaxForm">{% csrf_token %}
+		<button type="submit">Submit</button>
+	</form>
+
+<!-- End of Ajax test  -->
 
 <!--Modal for every item  -->
 	    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -169,12 +191,62 @@
 		    </div>
 		  </div>
 		</div>
-		
 <!--End of modal  -->
 
-
+<!--Modal for custom items  -->
+<div class="modal fade" id="customProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="custom-title"></h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+			</div>
+			<div class="modal-body">
+				<h5>Τυριά</h5>
+				<div class="row">
+					{% for cheese in cheeses %}
+					<div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input">
+							<label class="custom-control-label">{{ cheese.title }}</label>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				<h5>Κρεατικά</h5>
+				<div class="row">
+					{% for meat in meats %}
+					<div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+						{{ meat.title }}
+					</div>
+					{% endfor %}
+				</div>
+				<h5>Λαχανικά</h5>
+				<div class="row">
+					{% for grocerie in groceries %}
+					<div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+						{{ grocerie.title }}
+					</div>
+					{% endfor %}
+				</div>
+				<h5>Διάφορα</h5>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"></li>
+				</ul>
+			</div>
+			<div class="modal-footer">
+		    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Κλείσιμο</button>
+		        <button type="button" class="btn btn-primary add_custom_product" data-dismiss="modal">Προσθήκη στο καλάθι</button>
+		    </div>
+		</div>
+	</div>
+</div>
+<!--End of modal  -->
 {% endblock %}
 
 {% block extra_js %}
 	<script src="{% static 'media_root/js/menu.js'%}"></script>
+	<script src="{% static 'media_root/js/AjaxCalls.js'%}"></script>
 {% endblock %}
