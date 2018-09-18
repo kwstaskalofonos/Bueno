@@ -10,17 +10,42 @@ $( document ).ready(function() {
 		var product_comments = $('#message-text').val();
 		var product_quan = $('#quantity').val();
 		var total_price = parseFloat(product_price)*parseInt(product_quan);
-		var crepe = {
+		/*var crepe = {
 			title:product_title,
 			desc:product_desc,
 			comments:product_comments,
 			quantity:product_quan,
 			price:total_price
-		};
-		crepes.push(crepe);
-		cartupdate(product_title,product_quan,total_price);
-		//save cart to localStorage
-		sessionStorage.setItem("shoppingCart",JSON.stringify(crepes));
+		};*/
+
+		var crepe = {}
+		
+		$.ajax({
+			type:'GET',
+			url:'/ajax/AjaxCall/',
+			data:{
+				name:product_title,
+				csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+			},
+			datatype:'json',
+			success:function(data){
+				var item = jQuery.parseJSON(data)
+				crepe = {
+					title:item.title,
+					desc:item.desc,
+					comments:product_comments,
+					quantity:product_quan,
+					price:item.price
+				};
+				crepes.push(crepe);
+				cartupdate(crepe.title,crepe.quantity,total_price);
+				//save cart to SessionStorage
+				sessionStorage.setItem("shoppingCart",JSON.stringify(crepes));
+			},
+			error:function(xhr,errmsg,err){
+				alert('failed');
+			}
+		});
 	});
 
 	//clear the cart
@@ -42,8 +67,6 @@ $( document ).ready(function() {
 			crepes = JSON.parse(sessionStorage.getItem("shoppingCart"));
 			crepes.forEach(function(item,index){
 				cartupdate(item.title,item.quantity,item.price)
-				console.log(item);
-				console.log(item.quantity)
 			});
 		}
 	}

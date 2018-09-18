@@ -152,7 +152,12 @@
 		</div>
 		<!--End of Cart implementation -->
 	</div>
+	<div class="form-group">
+		<input class="form-control" type="text" placeholder="Address" id="address">
+		<button type="button" class="btn btn-primary" id="Check">Check</button>
+	</div>
 </div>
+
 <!--Ajax test  -->
 	<form id="AjaxForm">{% csrf_token %}
 		<button type="submit">Submit</button>
@@ -204,13 +209,18 @@
 		        </button>
 			</div>
 			<div class="modal-body">
+				<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" checked="">
+					<label class="custom-control-label">Φύλλο κρέπας</label>
+					<span style="margin-left:10px">2.50<i class="fa fa-eur price" aria-hidden="true"></i></span>
+				</div>
 				<h5>Τυριά</h5>
 				<div class="row">
 					{% for cheese in cheeses %}
 					<div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
 						<div class="custom-control custom-checkbox">
-							<input type="checkbox" class="custom-control-input">
-							<label class="custom-control-label">{{ cheese.title }}</label>
+							<input type="checkbox" class="custom-control-input" id="{{ cheese.title }}">
+							<label class="custom-control-label" for="{{ cheese.title }}">{{ cheese.title }}</label>
 						</div>
 					</div>
 					{% endfor %}
@@ -219,7 +229,10 @@
 				<div class="row">
 					{% for meat in meats %}
 					<div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
-						{{ meat.title }}
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="{{ meat.title }}">
+							<label class="custom-control-label" for="{{ meat.title }}">{{ meat.title }}</label>
+						</div>
 					</div>
 					{% endfor %}
 				</div>
@@ -227,14 +240,24 @@
 				<div class="row">
 					{% for grocerie in groceries %}
 					<div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
-						{{ grocerie.title }}
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="{{ grocerie.title }}">
+							<label class="custom-control-label" for="{{ grocerie.title }}">{{ grocerie.title }}</label>
+						</div>
 					</div>
 					{% endfor %}
 				</div>
 				<h5>Διάφορα</h5>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item"></li>
-				</ul>
+				<div class="row">
+					{% for difr in difrs %}
+					<div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="{{ difr.title }}">
+							<label class="custom-control-label" for="{{ difr.title }}">{{ difr.title }}</label>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
 			</div>
 			<div class="modal-footer">
 		    	<button type="button" class="btn btn-secondary" data-dismiss="modal">Κλείσιμο</button>
@@ -250,4 +273,9 @@
 	<script src="{% static 'media_root/js/menu.js'%}"></script>
 	<script src="{% static 'media_root/js/AjaxCalls.js'%}"></script>
 	<script src="{% static 'media_root/js/CartFuncs.js'%}"></script>
+	<!--
+	<script src="{% static 'media_root/js/Maps.js'%}"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmJU0Ngkt8pFRAlIXQKaO4aMphONDpiuI&callback=initMap&libraries=places"
+  type="text/javascript"></script>
+	  -->
 {% endblock %}

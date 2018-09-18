@@ -2,6 +2,8 @@ from django.views.generic import ListView
 from django.shortcuts import render
 from .models import Material, Crepe
 from django.http import HttpResponse
+import json
+from decimal import Decimal 
 
 #class MaterialListView(ListView):
 	#materials = Material.objects.get(category='Αλμυρές')
@@ -39,6 +41,17 @@ def AjaxCall(request):
 			print('Ajax call')
 		else:
 			print('No Ajax')
-	return HttpResponse('')
+		return HttpResponse('')
+	else:
+		if request.is_ajax():
+			item = Crepe.objects.get(title__iexact=request.GET['name'])
+			order_item = {}
+			order_item['title'] = item.title
+			item_price = Decimal(item.price)
+			order_item['price'] = str(item_price)
+			order_item['desc'] = item.descritpion
+			return HttpResponse(json.dumps(order_item))
+		else:
+			return HttpResponse('')
 
 

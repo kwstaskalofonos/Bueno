@@ -38,6 +38,9 @@ $( document ).ready(function() {
 			        });
 			      }
 	});
-	
+
+	$('.custom-control-input').change(function(){
+		$(this).prop('interminate',true);
+	});	
 
 });
